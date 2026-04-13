@@ -47,9 +47,11 @@ class CustomException(Exception):
     def __str__(self):
         # When the exception is printed, show the enriched message
         return self.error_message
+    
 # Add temporarily to exception.py for testing
 if __name__ == "__main__":
     try:
         a = 1 / 0
     except Exception as e:
+        logging.info(CustomException(e, sys))
         raise CustomException(e, sys)
